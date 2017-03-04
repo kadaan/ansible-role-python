@@ -14,6 +14,10 @@
     name: pyenv-virtualenv
     state: present
 
+- name: Ensure configured python versions are present.
+  command: "pyenv install -s {{ item }}"
+  with_items: "{{ python_versions }}"
+
 - name: Ensure configured latest global pip package are present.
   pip:
     name: "{{ item.name }}"

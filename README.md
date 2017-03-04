@@ -12,6 +12,10 @@ None.
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
+    python_versions: []
+
+Python versions you would like to make sure are installed by pyenv.
+
     python_pip_global_packages: []
 
 Global PIP packages you would like to make sure are installed.
