@@ -1,0 +1,30 @@
+---
+- name: Ensure python homebrew package is installed.
+  homebrew:
+    name: python
+    state: present
+
+- name: Ensure pyenv homebrew package is installed.
+  homebrew:
+    name: pyenv
+    state: present
+
+- name: Ensure pyenv homebrew package is installed.
+  homebrew:
+    name: pyenv-virtualenv
+    state: present
+
+- name: Ensure configured latest global pip package are present.
+  pip:
+    name: "{{ item.name }}"
+    state: latest
+  with_items: "{{ python_pip_global_packages }}"
+  when: item.version is undefined or item.version == "latest"
+
+- name: Ensure configured pinned global pip package are present.
+  pip:
+    name: "{{ item.name }}"
+    version: "{{ item.version }}"
+    state: present
+  with_items: "{{ python_pip_global_packages }}"
+  when: item.version is defined and item.version != "latest"
