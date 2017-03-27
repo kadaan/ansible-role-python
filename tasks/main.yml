@@ -3,27 +3,31 @@
   homebrew:
     name: python
     state: present
+  when: python_execute == true
 
 - name: Ensure pyenv homebrew package is installed.
   homebrew:
     name: pyenv
     state: present
+  when: python_execute == true
 
 - name: Ensure pyenv homebrew package is installed.
   homebrew:
     name: pyenv-virtualenv
     state: present
+  when: python_execute == true
 
 - name: Ensure configured python versions are present.
   command: "pyenv install -s {{ item }}"
   with_items: "{{ python_versions }}"
+  when: python_execute == true
 
 - name: Ensure configured latest global pip package are present.
   pip:
     name: "{{ item.name }}"
     state: latest
   with_items: "{{ python_pip_global_packages }}"
-  when: item.version is undefined or item.version == "latest"
+  when: python_execute == true and (item.version is undefined or item.version == "latest")
 
 - name: Ensure configured pinned global pip package are present.
   pip:
@@ -31,4 +35,4 @@
     version: "{{ item.version }}"
     state: present
   with_items: "{{ python_pip_global_packages }}"
-  when: item.version is defined and item.version != "latest"
+  when: python_execute == true and item.version is defined and item.version != "latest"

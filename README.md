@@ -22,13 +22,13 @@ Global PIP packages you would like to make sure are installed.
 
 ## Dependencies
 
-  - `kadaan.homebrew`
+  - [kadaan.homebrew](https://galaxy.ansible.com/kadaan/homebrew/)
 
 ## Example Playbook
 
     - hosts: localhost
       roles:
-        - { role: kadaan.python }
+        - { role: kadaan.python, python_execute: true }
 
 ## License
 
