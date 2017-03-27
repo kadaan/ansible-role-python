@@ -3,13 +3,11 @@
   homebrew:
     name: python
     state: present
-  when: python_execute == true
 
 - name: Ensure pyenv homebrew package is installed.
   homebrew:
     name: pyenv
     state: present
-  when: python_execute == true
 
 - name: Ensure pyenv homebrew package is installed.
   homebrew:
