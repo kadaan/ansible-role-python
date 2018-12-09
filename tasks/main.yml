@@ -24,6 +24,7 @@
 - name: Ensure configured latest global pip package are present.
   pip:
     name: "{{ item.name }}"
+    extra_args: "--user"
     state: latest
   with_items: "{{ python_pip_global_packages }}"
   when: item.version is undefined or item.version == "latest"
@@ -32,6 +33,7 @@
   pip:
     name: "{{ item.name }}"
     version: "{{ item.version }}"
+    extra_args: "--user"
     state: present
   with_items: "{{ python_pip_global_packages }}"
   when: item.version is defined and item.version != "latest"
