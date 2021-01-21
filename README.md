@@ -1,6 +1,6 @@
 # Ansible Role: Python
 
-[![Build Status](https://travis-ci.org/kadaan/ansible-role-python.svg?branch=master)](https://travis-ci.org/kadaan/ansible-role-python)
+[![Build Status](https://travis-ci.com/kadaan/ansible-role-python.svg?branch=master)](https://travis-ci.com/kadaan/ansible-role-python)
 
 Installs python and global python packages.
 
