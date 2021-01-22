@@ -27,7 +27,7 @@
     name: "{{ item.name }}"
     extra_args: "--user"
     state: latest
-  with_items: "{{ python_pip_executable }}"
+  with_items: "{{ python_pip_global_packages }}"
   when: item.version is undefined or item.version == "latest"
 
 - name: Ensure configured pinned global pip package are present.
