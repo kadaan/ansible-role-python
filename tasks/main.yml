@@ -21,6 +21,9 @@
   command: "pyenv install -s {{ item }}"
   with_items: "{{ python_versions }}"
 
+- name: Log python_pip_executable
+  debug: var=python_pip_executable
+
 - name: Ensure configured latest global pip package are present.
   pip:
     executable: "{{ python_pip_executable | default(None) }}"
