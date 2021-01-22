@@ -23,14 +23,16 @@
 
 - name: Ensure configured latest global pip package are present.
   pip:
+    executable: "{{ python_pip_global_executable | default(None) }}"
     name: "{{ item.name }}"
     extra_args: "--user"
     state: latest
-  with_items: "{{ python_pip_global_packages }}"
+  with_items: "{{ python_pip_executable }}"
   when: item.version is undefined or item.version == "latest"
 
 - name: Ensure configured pinned global pip package are present.
   pip:
+    executable: "{{ python_pip_executable | default(None) }}"
     name: "{{ item.name }}"
     version: "{{ item.version }}"
     extra_args: "--user"
