@@ -21,9 +21,6 @@
   command: "pyenv install -s {{ item }}"
   with_items: "{{ python_versions }}"
 
-- name: Log python_pip_executable
-  debug: var=python_pip_executable
-
 - name: Ensure configured latest global pip package are present.
   pip:
     executable: "{{ python_pip_executable | default(None) }}"
@@ -31,6 +28,7 @@
     extra_args: "--user"
     state: latest
   with_items: "{{ python_pip_global_packages }}"
+  environment: "{{ item.environment if item.environment is defined else {} }}"
   when: item.version is undefined or item.version == "latest"
 
 - name: Ensure configured pinned global pip package are present.
@@ -41,4 +39,5 @@
     extra_args: "--user"
     state: present
   with_items: "{{ python_pip_global_packages }}"
+  environment: "{{ item.environment if item.environment is defined else {} }}"
   when: item.version is defined and item.version != "latest"
