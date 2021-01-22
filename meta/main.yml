@@ -1,17 +1,20 @@
+---
+dependencies:
+  - kadaan.homebrew
+
 galaxy_info:
+  role_name: python
   author: kadaan
-  description: Installs python and global pip packages.
-  license: Apache 2.0
-  min_ansible_version: 2.2
+  description: nstalls python and global pip packages
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.5
   platforms:
     - name: MacOSX
       versions:
-        - 10.11
-        - 10.12
+        - all
+        - any
   galaxy_tags:
     - development
     - system
-    - console
+    - packaging
     - python
-dependencies:
-  - kadaan.homebrew

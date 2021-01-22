@@ -1,6 +1,6 @@
 # Ansible Role: Python
 
-[![Build Status](https://travis-ci.com/kadaan/ansible-role-python.svg?branch=master)](https://travis-ci.com/kadaan/ansible-role-python)
+[![CI][badge-gh-actions]][link-gh-actions]
 
 Installs python and global python packages.
 
@@ -33,3 +33,6 @@ Global PIP packages you would like to make sure are installed.
 ## License
 
 Apache 2.0
+
+[badge-gh-actions]: https://github.com/kadaan/ansible-role-python/workflows/CI/badge.svg?event=push
+[link-gh-actions]: https://github.com/kadaan/ansible-role-python/actions?query=workflow%3ACI
